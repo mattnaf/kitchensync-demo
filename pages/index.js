@@ -20,7 +20,7 @@ export default function Home() {
         <div className={styles.sectionOneContainer}>
           <TableQrCode qrUrl="https://firebasestorage.googleapis.com/v0/b/kitchensync-fd489.appspot.com/o/tableOneQr.png?alt=media&token=8692d98f-2aea-4ae5-b1db-f21f818c6763"  style={styles.qrImageContainer1} tableNumber={1}/>
           <Description/>
-          <TableQrCode qrUrl="https://firebasestorage.googleapis.com/v0/b/kitchensync-fd489.appspot.com/o/testQrCode.png?alt=media&token=cc03c5fb-284a-457d-916a-010f41a68ef4"  style={styles.qrImageContainer2} tableNumber={2}/>
+          <TableQrCode qrUrl="https://firebasestorage.googleapis.com/v0/b/kitchensync-fd489.appspot.com/o/tableOneQr.png?alt=media&token=8692d98f-2aea-4ae5-b1db-f21f818c6763"  style={styles.qrImageContainer2} tableNumber={2}/>
         </div>
         
       </main>
