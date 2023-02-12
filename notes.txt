@@ -1,0 +1,17 @@
+React Components
+    InitialDemoScreen
+        TableQrCode
+        Description
+        KitchenTable
+            KitchenTableCell
+        RunnerTable
+            RunnerTableCell
+    MenuScreen
+        KitchenSyncLogo (CartIcon)
+        NavigationBar
+        MenuTable
+            MenuTableCell
+        CartButton (ViewCartButton)
+        AddItemModal
+        ConfirmOrderModal (Cart)View)
+        PaymentModal (Checkout)
