@@ -78,7 +78,7 @@
   overflow: hidden;
   margin-bottom: 10px;
   align-items: center;
-  background: white;
+  width: 100%;
 }
 
 .menuTableCellImage {

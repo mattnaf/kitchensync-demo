@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import React from 'react';
 import MenuNavigation from '../../components/MenuNavigation';
 import MenuTable from '../../components/MenuTable';
-import CartButton from '../../components/ViewCartButton';
+import ViewCartButton from '../../components/ViewCartButton';
 import styles from '@/styles/Home.module.css';
 
 
@@ -135,7 +135,7 @@ const Menu = (props) => {
         </div>
       </div>
       <MenuTable menuItems={menuItems} />
-      <CartButton itemCount={5}/>
+      <ViewCartButton itemCount={5}/>
     </div>
   );
 };

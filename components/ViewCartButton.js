@@ -4,7 +4,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import styles from '@/styles/Home.module.css';
 
 const CartButton = (props) => {
-    const {itemCount} = props;
+    const {itemCount, totalPrice} = props;
 
     return (
         <div className={styles.cartButton}>
