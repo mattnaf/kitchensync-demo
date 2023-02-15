@@ -21,7 +21,14 @@ const Menu = (props) => {
   const [drinksArray, setDrinksArray] = useState([])
   const [cart, setCart] = useState([])
 
-  const menuItems = [
+
+  const initialize = useCallback(() => {
+    let appetizers = [];
+    let entrees = [];
+    let sides = [];
+    let drinks =[];
+    
+    const menuItems = [
       {
         id:1,
         title: "Lemon Herb Grilled Chicken",
@@ -152,13 +159,6 @@ const Menu = (props) => {
       }
   ];
 
-
-  const initialize = useCallback(() => {
-    let appetizers = [];
-    let entrees = [];
-    let sides = [];
-    let drinks =[];
-
     menuItems.forEach( item => {
       switch (item.type) {
         case "appetizer":
@@ -181,7 +181,7 @@ const Menu = (props) => {
     setSidesArray(sides)
     setDrinksArray(drinks)
 
-  }, [menuItems])
+  }, [])
 
   // const generateCartId = () => {
   //   const cartId = `${tableNumber}-${Date.now()}`
