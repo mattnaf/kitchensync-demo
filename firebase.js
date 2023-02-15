@@ -14,7 +14,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-default export app
+export default app
 
  
-//  export const businessTables = firebase.storage().ref('businessTables/');
