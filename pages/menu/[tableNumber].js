@@ -181,7 +181,7 @@ const Menu = (props) => {
     setSidesArray(sides)
     setDrinksArray(drinks)
 
-  }, [])
+  }, [menuItems])
 
   // const generateCartId = () => {
   //   const cartId = `${tableNumber}-${Date.now()}`
