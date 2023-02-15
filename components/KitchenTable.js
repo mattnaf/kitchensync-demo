@@ -1,24 +1,30 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from '@/styles/Home.module.css'
+import {useCollection} from 'react-firebase-hooks/firestore';
+import { getFirestore, collection } from 'firebase/firestore';
+import app from '../firebase';
+import KitchenTableCell from './KitchenTableCell';
 
 const KitchenTable = (props) => {
 
-    /*
-
-    const ordersRef = firestore.collection('orders')
     
-    var kitchenQuery = ordersRef.where("status", "==", "paid").orderBy("time")
-    var [kitchenItems] = useCollectionData(kitchenQuery,{idField:'id'});
-
-    var runnerQuery = ordersRef.where("status", "==", "ready").orderBy("time")
-    var [runnerItems] = useCollectionData(runnerQuery,{idField:'id'});
-    */
-
+    const [value, loading, error] = useCollection(
+        collection(getFirestore(app), 'kitchenTable'),
+        {
+          snapshotListenOptions: { includeMetadataChanges: true },
+        }
+    );
+    
+    let data;
     return (
         <div className={styles.kitchenTableContainer}>
-            {
-                
-            }
+            {error && <strong>Error: {JSON.stringify(error)}</strong>}
+            {loading && <span>Kitchen Table: Loading...</span>}
+            {value && (
+                value.docs.map((doc) => (
+                    <KitchenTableCell orderObj={doc.data()}/>
+                ))
+            )}
         </div>
     )
     

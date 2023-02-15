@@ -5,7 +5,7 @@ const MenuTableCell = (props) => {
 
     const { image,title, price, description } = props;
     return (
-        <div className={styles.menuTableCell}>
+        <div className={styles.menuTableCell} onClick={props.onClick}>
             <img src={image} alt={title} className={styles.menuTableCellImage} />
             <div className={styles.menuTableCellTextContainer}>
                 <div className={styles.menuTableCellTitle}>{title}</div>

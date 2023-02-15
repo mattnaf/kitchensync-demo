@@ -5,21 +5,7 @@ const KitchenTableCell = (props) => {
     const orderObj = props.orderObj
     return (
         <div className={styles.kitchenTableCellContainer}>
-            <div className={styles.kitchenTableCellTableContainer}>
-
-            </div>
-            <div className={styles.kitchenTableCellItemNameContainer}>
-                
-            </div>
-            <div className={styles.kitchenTableCellItemNameContainer}>
-                
-            </div>
-            <div className={styles.kitchenTableCellCommentContainer}>
-                
-            </div>
-            <div className={styles.kitchenTableCellTimeContainer}>
-                
-            </div>
+            <a>{orderObj.Title}</a>
         </div>
     )
     

@@ -3,20 +3,20 @@ import styles from '@/styles/Home.module.css'
 
 
 
-const MobileNavBar = () => {
+const MenuNavigation = (props) => {
   return (
     <nav className={styles.menuNavigation}>
       <ul className={styles.menuNavigationList}>
-        <li className={styles.menuNavigationItem} onClick={() => onClick('appetizers')}>
+        <li className={styles.menuNavigationItem} onClick={() => props.onClick('appetizers')}>
           Appetizers
         </li>
-        <li className={styles.menuNavigationItem} onClick={() => onClick('entrees')}>
+        <li className={styles.menuNavigationItem} onClick={() => props.onClick('entrees')}>
           Entrees
         </li>
-        <li className={styles.menuNavigationItem} onClick={() => onClick('sides')}>
+        <li className={styles.menuNavigationItem} onClick={() => props.onClick('sides')}>
           Sides
         </li>
-        <li className={styles.menuNavigationItem} onClick={() => onClick('drinks')}>
+        <li className={styles.menuNavigationItem} onClick={() => props.onClick('drinks')}>
           Drinks
         </li>
       </ul>
@@ -24,4 +24,4 @@ const MobileNavBar = () => {
   );
 };
 
-export default MobileNavBar;
+export default MenuNavigation;

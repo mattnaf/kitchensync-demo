@@ -4,19 +4,19 @@ import MenuTableCell from './MenuTableCell';
 
 const MenuTable = (props) => {
     const { menuItems } = props;
-    console.log('bruh')
-    console.log(props.menuItems)
     return (
         <div className={styles.menuTable}>
-        {props.menuItems.map((menuItem) => (
-            <MenuTableCell
-            key={menuItem.title}
-            image={menuItem.image}
-            title={menuItem.title}
-            price={menuItem.price}
-            description={menuItem.description}
-            />
-        ))}
+            <h2 className={styles.menuSectionTitle}>{props.sectionTitle}</h2>
+            {props.menuItems.map((menuItem) => (
+                <MenuTableCell
+                    onClick={() => props.setSelectedItem(menuItem)}
+                    key={menuItem.title}
+                    image={menuItem.image}
+                    title={menuItem.title}
+                    price={menuItem.price}
+                    description={menuItem.description}
+                />
+            ))}
         </div>
     );
 };
