@@ -153,7 +153,35 @@ const Menu = (props) => {
   ];
 
 
-  
+  const initialize = useCallback(() => {
+    let appetizers = [];
+    let entrees = [];
+    let sides = [];
+    let drinks =[];
+
+    menuItems.forEach( item => {
+      switch (item.type) {
+        case "appetizer":
+          appetizers.push(item)
+          break
+        case "entree":
+          entrees.push(item)
+          break
+        case "side":
+          sides.push(item)
+          break
+        case "drink":
+          drinks.push(item)
+          break
+      }
+    })
+
+    setAppetizersArray(appetizers)
+    setEntreesArray(entrees)
+    setSidesArray(sides)
+    setDrinksArray(drinks)
+
+  }, [])
 
   // const generateCartId = () => {
   //   const cartId = `${tableNumber}-${Date.now()}`
@@ -181,39 +209,9 @@ const Menu = (props) => {
   }
 
   useEffect(() => {
-    const initialize = () => {
-    
-      let appetizers = [];
-      let entrees = [];
-      let sides = [];
-      let drinks =[];
-  
-      menuItems.forEach( item => {
-        switch (item.type) {
-          case "appetizer":
-            appetizers.push(item)
-            break
-          case "entree":
-            entrees.push(item)
-            break
-          case "side":
-            sides.push(item)
-            break
-          case "drink":
-            drinks.push(item)
-            break
-        }
-      })
-  
-      setAppetizersArray(appetizers)
-      setEntreesArray(entrees)
-      setSidesArray(sides)
-      setDrinksArray(drinks)
-  
-    }
     initialize();
 
-  }, []);
+  }, [initialize]);
 
   return (
     <div className={styles.menuPage}>
