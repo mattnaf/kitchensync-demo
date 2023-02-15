@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import MenuNavigation from '../../components/MenuNavigation';
 import MenuTable from '../../components/MenuTable';
 import ViewCartButton from '../../components/ViewCartButton';
@@ -27,7 +27,7 @@ const Menu = (props) => {
     let entrees = [];
     let sides = [];
     let drinks =[];
-    
+
     const menuItems = [
       {
         id:1,

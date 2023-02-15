@@ -12,7 +12,9 @@ const firebaseConfig = {
     measurementId: "G-T2R37D1CSQ"
 };
 
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+
+default export app
 
  
 //  export const businessTables = firebase.storage().ref('businessTables/');
