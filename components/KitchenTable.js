@@ -22,7 +22,7 @@ const KitchenTable = (props) => {
             {loading && <span>Kitchen Table: Loading...</span>}
             {value && (
                 value.docs.map((doc) => (
-                    <KitchenTableCell orderObj={doc.data()}/>
+                    <KitchenTableCell key={doc.data().id} orderObj={doc.data()}/>
                 ))
             )}
         </div>
