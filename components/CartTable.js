@@ -13,6 +13,7 @@ const CartTable = (props) => {
                     price={cartItem.price}
                     comment={cartItem.comment}
                     index={index}
+                    key={index}
                 />
             )) : <p>Cart is empty.</p>}
         </div>
