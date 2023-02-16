@@ -10,7 +10,7 @@ const MenuTableCell = (props) => {
             <div className={styles.menuTableCellTextContainer}>
                 <div className={styles.menuTableCellTitle}>{title}</div>
                 <div className={styles.menuTableCellDescription}>{description}</div>
-                <div className={styles.menuTableCellPrice}>{price}</div>
+                <div className={styles.menuTableCellPrice}>${price.toFixed(2)}</div>
             </div>
         </div>
     )

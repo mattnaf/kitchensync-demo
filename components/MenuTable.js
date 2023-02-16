@@ -3,10 +3,10 @@ import styles from '@/styles/Home.module.css';
 import MenuTableCell from './MenuTableCell';
 
 const MenuTable = (props) => {
-    const { menuItems } = props;
+    const { menuItems, sectionTitle } = props;
     return (
         <div className={styles.menuTable}>
-            <h2 className={styles.menuSectionTitle}>{props.sectionTitle}</h2>
+            <h2 className={styles.menuSectionTitle}>{sectionTitle}</h2>
             {props.menuItems.map((menuItem) => (
                 <MenuTableCell
                     onClick={() => props.setSelectedItem(menuItem)}
