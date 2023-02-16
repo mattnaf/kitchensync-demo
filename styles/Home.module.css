@@ -319,7 +319,7 @@
 
 .goToCheckoutButton {
   height: 8%;
-  width: 45%;
+  width: 50%;
   border-radius: 25px;
   background: green;
   color: white;
@@ -335,4 +335,32 @@
   background: none;
   border-style: none;
   font-size: 1.2em;
+}
+
+.submitPaymentButton {
+  height: 8%;
+  width: 50%;
+  border-radius: 25px;
+  background: green;
+  color: white;
+  border-style: none;
+  font-size: 1.2em;
+  margin-top: 2%;
+}
+
+.paymentTotalContainer {
+  display: flex;
+  margin-top: 2px;
+}
+
+.paymentTotalLabel {
+  font-weight:bold;
+  font-size: 1.1em;
+  width:25%;
+  margin-left: auto;
+}
+
+.paymentTotal {
+  font-size: 1.1em;
+  width:25%;
 }
