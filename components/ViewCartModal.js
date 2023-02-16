@@ -4,7 +4,7 @@ import CartTable from "./CartTable";
 
 const ViewCartModal = (props) => {
 
-    const { items } = props
+    const { items, show } = props
 
     const total = () => {
         let total = 0;
@@ -15,16 +15,16 @@ const ViewCartModal = (props) => {
     }
 
     return (
-        <div hidden={!props.show} className={styles.modalContainer}>
+        <div hidden={!show} className={styles.modalContainer}>
             <div className={styles.modalBackground}/>
             <div className={styles.modal}>
-            <button className={styles.closeAddItemModalButton} onClick={() => props.hide()} >X</button>
+                <button className={styles.closeAddItemModalButton} onClick={() => props.hide()} >X</button>
                 <CartTable cartItems={items}/>
                 <div className={styles.viewCartTotalContainer}>
                     <p className={styles.viewCartTotalLabel}>Subtotal:</p>
                     <p className={styles.viewCartTotal}>${total()}</p>
                 </div>
-                <button className={styles.goToCheckoutButton}>Go to checkout</button>
+                <button onClick={() => props.showPayment()} className={styles.goToCheckoutButton}>Go to checkout</button>
             </div>
         </div>
     )

@@ -6,6 +6,7 @@ import ViewCartButton from '../../components/ViewCartButton';
 import styles from '@/styles/Home.module.css';
 import AddItemModal from '@/components/AddItemModal';
 import ViewCartModal from '@/components/ViewCartModal';
+import PaymentModal from '@/components/PaymentModal';
 
 
 const Menu = (props) => {
@@ -21,6 +22,8 @@ const Menu = (props) => {
   const [drinksArray, setDrinksArray] = useState([])
   const [cart, setCart] = useState([])
   const [showViewCart, setShowViewCart] = useState(false)
+  const [showPayment, setShowPayment] = useState(false)
+  const [tip, setTip] = useState(0)
 
 
   const initialize = useCallback(() => {
@@ -209,6 +212,11 @@ const Menu = (props) => {
     setSelectedItem()
   }
 
+  const goToCheckOut = () => {
+    setShowPayment(true)
+    setShowViewCart(false)
+  }
+
   useEffect(() => {
     initialize();
 
@@ -233,7 +241,8 @@ const Menu = (props) => {
       </div>
       <ViewCartButton itemCount={cart.length} onClick={() => setShowViewCart(true)}/>
       <AddItemModal closeAddItem={setSelectedItem} selectedItem={selectedItem} addItemToCart={(item,quantity,comment) => addItemToCart(item,quantity,comment)}/>
-      <ViewCartModal hide={() => setShowViewCart(false)} show={showViewCart} items={cart}/>
+      <ViewCartModal hide={() => setShowViewCart(false)} show={showViewCart} items={cart} showPayment={() => goToCheckOut()}/>
+      <PaymentModal hide={() => setShowPayment(false)} show={showPayment} items={cart} updateTip={(tip) => setTip(tip)} tip={tip}/>
     </div>
   );
 };
