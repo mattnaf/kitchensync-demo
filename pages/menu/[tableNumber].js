@@ -7,6 +7,7 @@ import styles from '@/styles/Home.module.css';
 import AddItemModal from '@/components/AddItemModal';
 import ViewCartModal from '@/components/ViewCartModal';
 import PaymentModal from '@/components/PaymentModal';
+import PaymentConfirmedModal from '@/components/PaymentConfirmedModal';
 
 
 const Menu = (props) => {
@@ -24,6 +25,9 @@ const Menu = (props) => {
   const [showViewCart, setShowViewCart] = useState(false)
   const [showPayment, setShowPayment] = useState(false)
   const [tip, setTip] = useState(0)
+  const [animationPercentage, setAnimationPercentage] = useState(1)
+  const [showPaymentConfirmation, setShowPaymentConfirmation] = useState(false)
+  const [showThankYouText, setShowThankYouText] = useState(false)
 
 
   const initialize = useCallback(() => {
@@ -217,12 +221,36 @@ const Menu = (props) => {
     setShowViewCart(false)
   }
 
-  const removeItemFromCart = (index) => {
-    console.log("pushed")
-    let currentCart = cart
-    currentCart.splice(index,1)
-    setCart(currentCart)
+  let test = 0
+
+  const animatonFunction = () => {
+    setTimeout( () => {
+      console.log(test)
+      test = test + 5
+      setAnimationPercentage(test)
+      if (test < 101) {
+        animatonFunction()
+      } else {
+        setShowThankYouText(true)
+      }
+    },10)
   }
+
+  const confirmPayment = () => {
+    console.log("pressed")
+    setShowPayment(false)
+    setShowPaymentConfirmation(true)
+  
+    animatonFunction()
+    
+  }
+
+  const closePaymentModal = () => {
+    setShowPaymentConfirmation(false)
+    setCart([])
+    setTip(0)
+  }
+  
 
   useEffect(() => {
     initialize();
@@ -249,7 +277,8 @@ const Menu = (props) => {
       <ViewCartButton itemCount={cart.length} onClick={() => setShowViewCart(true)}/>
       <AddItemModal closeAddItem={setSelectedItem} selectedItem={selectedItem} addItemToCart={(item,quantity,comment) => addItemToCart(item,quantity,comment)}/>
       <ViewCartModal hide={() => setShowViewCart(false)} show={showViewCart} items={cart} showPayment={() => goToCheckOut()} updateCart={(cart) => setCart(cart) }/>
-      <PaymentModal hide={() => setShowPayment(false)} show={showPayment} items={cart} updateTip={(tip) => setTip(tip)} tip={tip}/>
+      <PaymentModal hide={() => setShowPayment(false)} show={showPayment} items={cart} updateTip={(tip) => setTip(tip)} tip={tip} submitPayment={() => confirmPayment()}/>
+      <PaymentConfirmedModal show={showPaymentConfirmation} percentage={animationPercentage} closeModal={() => closePaymentModal()}/>
     </div>
   );
 };

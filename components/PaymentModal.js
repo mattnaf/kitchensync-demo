@@ -36,7 +36,7 @@ const PaymentModal = (props) => {
                 </div>
                 <div className={styles.paymentTotalContainer}>
                     <p className={styles.paymentTotalLabel}>Tip:</p>
-                    <input className={styles.paymentTotal} type="number" onChange={(event) => props.updateTip(event.target.value) }/>
+                    <input value={tip} className={styles.paymentTotal} type="number" onChange={(event) => props.updateTip(event.target.value) }/>
                     <p className={styles.paymentTotalLabel}>Tax:</p>
                     <p className={styles.paymentTotal}>${tax()}</p>
                 </div>
@@ -44,7 +44,7 @@ const PaymentModal = (props) => {
                     <p className={styles.paymentTotalLabel}>Total:</p>
                     <p className={styles.paymentTotal}>${total()}</p>
                 </div>
-                <button className={styles.submitPaymentButton}>Submit Payment</button>
+                <button className={styles.submitPaymentButton} onClick={() => props.submitPayment()}>Submit Payment</button>
             </div>
         </div>
     )
