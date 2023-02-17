@@ -19,7 +19,7 @@ const ViewCartModal = (props) => {
             <div className={styles.modalBackground}/>
             <div className={styles.modal}>
                 <button className={styles.closeAddItemModalButton} onClick={() => props.hide()} >X</button>
-                <CartTable cartItems={items}/>
+                <CartTable cartItems={items} updateCart={(cart) => props.updateCart(cart) }/>
                 <div className={styles.viewCartTotalContainer}>
                     <p className={styles.viewCartTotalLabel}>Subtotal:</p>
                     <p className={styles.viewCartTotal}>${total()}</p>

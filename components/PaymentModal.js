@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from '@/styles/Home.module.css'
-import CartTable from "./CartTable";
+import PaymentTable from "./PaymentTable";
 
 const PaymentModal = (props) => {
 
@@ -29,7 +29,7 @@ const PaymentModal = (props) => {
             <div className={styles.modalBackground}/>
             <div className={styles.modal}>
                 <button className={styles.closeAddItemModalButton} onClick={() => props.hide()} >X</button>
-                <CartTable cartItems={items}/>
+                <PaymentTable cartItems={items}/>
                 <div className={styles.paymentTotalContainer}>
                     <p className={styles.paymentTotalLabel}>Subtotal:</p>
                     <p className={styles.paymentTotal}>${subtotal()}</p>

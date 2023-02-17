@@ -267,8 +267,8 @@
 }
 
 .cartTable {
-  margin-top: 12%;
-  height: 60%;
+  margin-top: 10%;
+  height: 62%;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -289,7 +289,7 @@
   text-align: left;
   margin-top: auto;
   margin-bottom: auto;
-  width:65%;
+  width:60%;
   height: auto;
 }
 
@@ -297,7 +297,21 @@
   text-align: right;
   margin-top: auto;
   margin-bottom: auto;
-  width:15%;
+  width:12%;
+}
+
+.cartTableRemoveItemContainer {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  width:12%;
+}
+
+.cartTableCellRemoveItemButton {
+  background: none;
+  border-style: none;
+  color: red;
+  font-weight: bold;
 }
 
 .viewCartTotalContainer {
@@ -364,3 +378,35 @@
   font-size: 1.1em;
   width:25%;
 }
+
+.paymentTable {
+  margin-top: 10%;
+  height: 62%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.paymentTableCell {
+  display: flex;
+  margin-bottom: 10px;
+  height: 8vh;
+}
+.paymentTableCellQuantityContainer {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 15%;
+}
+.paymentTableCellTitleCommentContainer {
+  text-align: left;
+  margin-top: auto;
+  margin-bottom: auto;
+  width:65%;
+  height: auto;
+}
+.paymentTableCellPriceContainer {
+  text-align: right;
+  margin-top: auto;
+  margin-bottom: auto;
+  width:15%;
+}
+

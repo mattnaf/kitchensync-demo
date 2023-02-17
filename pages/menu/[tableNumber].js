@@ -217,6 +217,13 @@ const Menu = (props) => {
     setShowViewCart(false)
   }
 
+  const removeItemFromCart = (index) => {
+    console.log("pushed")
+    let currentCart = cart
+    currentCart.splice(index,1)
+    setCart(currentCart)
+  }
+
   useEffect(() => {
     initialize();
 
@@ -241,7 +248,7 @@ const Menu = (props) => {
       </div>
       <ViewCartButton itemCount={cart.length} onClick={() => setShowViewCart(true)}/>
       <AddItemModal closeAddItem={setSelectedItem} selectedItem={selectedItem} addItemToCart={(item,quantity,comment) => addItemToCart(item,quantity,comment)}/>
-      <ViewCartModal hide={() => setShowViewCart(false)} show={showViewCart} items={cart} showPayment={() => goToCheckOut()}/>
+      <ViewCartModal hide={() => setShowViewCart(false)} show={showViewCart} items={cart} showPayment={() => goToCheckOut()} updateCart={(cart) => setCart(cart) }/>
       <PaymentModal hide={() => setShowPayment(false)} show={showPayment} items={cart} updateTip={(tip) => setTip(tip)} tip={tip}/>
     </div>
   );

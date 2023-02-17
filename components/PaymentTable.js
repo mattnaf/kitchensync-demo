@@ -1,34 +1,23 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React from 'react';
 import styles from '@/styles/Home.module.css';
-import CartTableCell from './CartTableCell';
+import PaymentTableCell from './PaymentTableCell';
 
-const CartTable = (props) => {
+const PaymentTable = (props) => {
     const { cartItems } = props;
-
-
-    const removeItemFromCart = (index) => {
-        let currentItems = cartItems.slice()
-        currentItems.splice(index,1)
-        props.updateCart(currentItems)
-    }
-
-
-
     return (
-        <div className={styles.cartTable}>
+        <div className={styles.paymentTable}>
             {cartItems.length > 0 ? cartItems.map((cartItem, index) => (
-                <CartTableCell 
+                <PaymentTableCell 
                     quantity={cartItem.quantity}
                     title={cartItem.title}
                     price={cartItem.price}
                     comment={cartItem.comment}
                     index={index}
                     key={index}
-                    removeItemFromCart={(index) => removeItemFromCart(index)}
                 />
             )) : <p>Cart is empty.</p>}
         </div>
     );
 };
 
-export default CartTable;
+export default PaymentTable;
