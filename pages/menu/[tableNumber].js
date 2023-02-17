@@ -241,8 +241,8 @@ const Menu = (props) => {
     setShowPaymentConfirmation(true)
     
 
-    await Promise.all(cart.map( async (item) => {
-      let cartId = generateCartId()
+    await Promise.all(cart.map( async (item, index) => {
+      let cartId = generateCartId() + `${index}`
       await setDoc(doc(db, "orders", cartId), {
         table: tableNumber,
         title: item.title,
@@ -253,10 +253,11 @@ const Menu = (props) => {
       });
     }))
     
+    
+    animatonFunction()
+    setAnimationPercentage(0)
     setCart([])
     setTip(0)
-    animatonFunction()
-    
   }
 
   const closePaymentModal = () => {

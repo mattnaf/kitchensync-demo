@@ -1,20 +1,20 @@
 .main {
-  background-color: whitesmoke;
-  height: 100vh;
+  margin-top: -2%;
+  background: white;
+  height: 110vh;
 }
 
 
 .sectionOneContainer {
   display: grid;
   grid-auto-rows: minmax(100px, auto);
-  margin-top: 100px;
+  margin-top: 2%;
 }
 
 
 .descriptionContainer {
   grid-column: 4/10;
   grid-row: 1;
-  background: green;
   display: table-cell;
   vertical-align: middle;
   height: 100%;
@@ -28,7 +28,6 @@
   text-align: center;
   font-weight: bold;
   font-size: 1.5em;
-  background: red;
   padding: 75px;
 }
 .qrImageContainer2 {
@@ -37,7 +36,6 @@
   text-align: center;
   font-weight: bold;
   font-size: 1.5em;
-  background: blue;
   padding: 75px;
 }
 
@@ -154,7 +152,6 @@
   left: 50%;
   transform: translateX(-50%);
   box-shadow: 2px 2px 5px #ccc;
-  border-color: gray;
   color: white;
   padding: 10px 20px;
   font-size: 18px;
@@ -477,4 +474,12 @@
   border-style: none;
   font-size: 1.2em;
   margin-top: 7%;
+}
+
+.logo {
+  object-fit: contain ;
+  max-height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
 }

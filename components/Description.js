@@ -5,7 +5,7 @@ const Description = (props) => {
 
     return (
         <div className={styles.descriptionContainer}>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Welcome to the "Kitchen Sync" demo page. On this screen you see two QR codes, each one representing a different table. Imagine they are on a table at a restaurant and scanning them with your phone gives you access to the menu and the ability to place orders. Once orders are placed they will be displayed on the table below as if they were presented to kitchen staff to show the incoming orders. When the orders are "complete", you can double tap them to "complete" them.</p>
         </div>
     )
 }

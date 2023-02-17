@@ -11,7 +11,6 @@ const PaymentConfirmedModal = (props) => {
             <div className={styles.modalBackground} />
             <div className={styles.modal}>
                 <ConfirmationAnimation size={250} strokeWidth={20} percentage={percentage}/>
-                <p className={styles.preparedText}>Your order is being prepared.</p>
                 <button className={styles.confirmedPaymentOkButton} onClick={() => props.closeModal()}>OK</button>
             </div>
         </div>

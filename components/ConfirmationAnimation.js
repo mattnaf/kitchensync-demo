@@ -34,11 +34,20 @@ const ConfirmationAnimation = (props) => {
                     fill="black"
                     fontSize="1.5em"
                     x="50%"
-                    y="45%"
+                    y="42%"
                     dy="20px"
                     textAnchor="middle"
                     opacity={percentage/100}
                 >Thank You!</text>
+                <text
+                    fill="black"
+                    fontSize="1em"
+                    x="50%"
+                    y="55%"
+                    dy="20px"
+                    textAnchor="middle"
+                    opacity={percentage/100}
+                >Your order is being prepared</text>
             </svg>
         </div>
         
