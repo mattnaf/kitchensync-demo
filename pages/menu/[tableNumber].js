@@ -8,7 +8,8 @@ import AddItemModal from '@/components/AddItemModal';
 import ViewCartModal from '@/components/ViewCartModal';
 import PaymentModal from '@/components/PaymentModal';
 import PaymentConfirmedModal from '@/components/PaymentConfirmedModal';
-
+import db from '../../firebase';
+import { doc, setDoc } from "firebase/firestore"; 
 
 const Menu = (props) => {
 
@@ -191,10 +192,10 @@ const Menu = (props) => {
 
   }, [])
 
-  // const generateCartId = () => {
-  //   const cartId = `${tableNumber}-${Date.now()}`
-  //   setCartId(cartId)
-  // }
+  const generateCartId = () => {
+    const cartId = `${tableNumber}-${Date.now()}`
+    return cartId
+  }
 
   const sectionScrollTo = (id) => {
     const section = document.getElementById(id)
@@ -225,7 +226,6 @@ const Menu = (props) => {
 
   const animatonFunction = () => {
     setTimeout( () => {
-      console.log(test)
       test = test + 5
       setAnimationPercentage(test)
       if (test < 101) {
@@ -236,19 +236,31 @@ const Menu = (props) => {
     },10)
   }
 
-  const confirmPayment = () => {
-    console.log("pressed")
+  const confirmPayment = async () => {
     setShowPayment(false)
     setShowPaymentConfirmation(true)
-  
+    
+
+    await Promise.all(cart.map( async (item) => {
+      let cartId = generateCartId()
+      await setDoc(doc(db, "orders", cartId), {
+        table: tableNumber,
+        title: item.title,
+        quantity: item.quantity,
+        comment: item.comment,
+        time:Date.now(),
+        id: cartId
+      });
+    }))
+    
+    setCart([])
+    setTip(0)
     animatonFunction()
     
   }
 
   const closePaymentModal = () => {
     setShowPaymentConfirmation(false)
-    setCart([])
-    setTip(0)
   }
   
 

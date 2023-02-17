@@ -1,14 +1,27 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import TableQrCode from '@/components/TableQrCode'
 import Description from '@/components/Description'
 import KitchenTable from '@/components/KitchenTable'
-
-const inter = Inter({ subsets: ['latin'] })
+import React, { useState, useRef, useEffect } from 'react';
+import PaymentModal from '@/components/PaymentModal'
 
 export default function Home() {
+
+  const [rightNow, setRightNow] = useState(Date.now())
+
+  const timerFunction = () => {
+    setTimeout( () => {
+      setRightNow(Date.now())
+      timerFunction()
+    },5000)
+  }
+
+  useEffect(() => {
+    timerFunction();
+
+  }, [timerFunction]);
+
   return (
     <>
       <Head>
@@ -23,8 +36,7 @@ export default function Home() {
           <Description/>
           <TableQrCode qrUrl="https://firebasestorage.googleapis.com/v0/b/kitchensync-fd489.appspot.com/o/tableTwoQr.png?alt=media&token=2949f0a0-ab72-4dd8-b056-4096704f8542"  style={styles.qrImageContainer2} tableNumber={2}/>
         </div>
-        <KitchenTable />
-        
+        <KitchenTable now={rightNow}/>
       </main>
     </>
   )

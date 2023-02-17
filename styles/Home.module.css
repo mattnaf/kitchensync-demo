@@ -1,5 +1,6 @@
 .main {
   background-color: whitesmoke;
+  height: 100vh;
 }
 
 
@@ -182,6 +183,53 @@
   height: 35%;
   width: 100%;
   padding: 15px;
+}
+
+.kitchenTableCellContainer {
+  display: flex;
+  padding: 5px;
+  height: 10%;
+  margin: 5px;
+}
+
+.kitchebTableHeader {
+  display: flex;
+  padding: 5px;
+  height: 10%;
+  margin: 5px;
+  border-style: solid;
+  background: lightGrey;
+}
+
+.kitchenTableCellTable {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 10%;
+}
+
+.kitchenTableCellQuantity {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 5%;
+}
+
+.kitchenTableCellTitle {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 30%;
+}
+
+.kitchenTableCellComment {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 45%;
+}
+
+
+.kitchenTableCellTime {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 10%;
 }
 
 .modalBackground {
@@ -416,7 +464,7 @@
 }
 
 .preparedText {
-  margin-top: 10%;
+  margin-top: 7%;
   font-size: 1.2em;
 }
 
@@ -428,5 +476,5 @@
   color: white;
   border-style: none;
   font-size: 1.2em;
-  margin-top: 10%;
+  margin-top: 7%;
 }
