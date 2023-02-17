@@ -416,8 +416,8 @@
 }
 
 .preparedText {
-  margin-top: 15%;
-  font-size: 1.5em;
+  margin-top: 10%;
+  font-size: 1.2em;
 }
 
 .confirmedPaymentOkButton {
@@ -428,5 +428,5 @@
   color: white;
   border-style: none;
   font-size: 1.2em;
-  margin-top: 15%;
+  margin-top: 10%;
 }
