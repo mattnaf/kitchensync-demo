@@ -19,6 +19,8 @@
   vertical-align: middle;
   height: 100%;
   padding: 100px;
+  color: black;
+  font-size: 1.2em;
 }
 
 
@@ -187,6 +189,8 @@
   padding: 5px;
   height: 10%;
   margin: 5px;
+  color: black;
+  font-size: 1.1em;
 }
 
 .kitchebTableHeader {
@@ -196,6 +200,8 @@
   margin: 5px;
   border-style: solid;
   background: lightGrey;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 .kitchenTableCellTable {
@@ -219,14 +225,14 @@
 .kitchenTableCellComment {
   margin-top: auto;
   margin-bottom: auto;
-  width: 45%;
+  width: 43%;
 }
 
 
 .kitchenTableCellTime {
   margin-top: auto;
   margin-bottom: auto;
-  width: 10%;
+  width: 12%;
 }
 
 .modalBackground {
