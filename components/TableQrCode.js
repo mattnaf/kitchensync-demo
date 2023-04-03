@@ -5,7 +5,7 @@ const TableQrCode = (props) => {
 
     return (
         <div className={props.style}>
-            <p>Table {props.tableNumber}</p>
+            <p className={styles.qrName}>Table {props.tableNumber}</p>
             <img className={styles.qrImage} src={props.qrUrl}/>
         </div>
     )

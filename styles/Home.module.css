@@ -46,6 +46,10 @@
   max-height: 200px;
 }
 
+.qrName {
+  color: black;
+}
+
 .shoppingCartIcon {
   float: right;
   margin-right: 10px;
