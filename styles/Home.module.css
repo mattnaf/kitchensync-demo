@@ -18,6 +18,7 @@
   width: 250px;
   font-weight: 600;
   font-size: x-large;
+  color: black;
 }
 
 .toolbarTabsContainer {
@@ -58,6 +59,7 @@
 .heroTitleText {
   font-size: 80px;
   font-weight: 600;
+  color: black;
 }
 
 .heroDescriptionContainer {
@@ -110,6 +112,7 @@
   flex-direction: column;
   border-style: solid;
   border-radius: 10px;
+  border-color: black;
   overflow: hidden;
 }
 
@@ -121,7 +124,7 @@
 .orderHeading {
   font-size: large;
   font-weight: 600;
-  background-color: lightgray;
+  color: black;
 }
 
 .orderItemsContainer {
