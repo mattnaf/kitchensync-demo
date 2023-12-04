@@ -1,14 +1,16 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
-import TableQrCode from '@/components/TableQrCode'
-import Description from '@/components/Description'
-import KitchenTable from '@/components/KitchenTable'
-import React, { useState, useRef, useEffect } from 'react';
-import PaymentModal from '@/components/PaymentModal'
+import DemoToolbar from '@/components/DemoToolbar';
+import React, { useState, useEffect } from 'react';
+import HeroSection from '@/components/HeroSection';
+import TablesSection from '@/components/TablesSection';
+import KitchenSection from '@/components/KitchenSection';
+
 
 export default function Home() {
 
   const [rightNow, setRightNow] = useState(Date.now())
+  const [activeTab, setActiveTab] = useState("Home")
 
   const timerFunction = () => {
     setTimeout( () => {
@@ -31,15 +33,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.main}>
-      <div className={styles.sectionOneContainer}>
-          <img className={styles.logo} src="https://firebasestorage.googleapis.com/v0/b/kitchensync-fd489.appspot.com/o/kitchenSyncLogo.png?alt=media&token=69a4d44f-ebd8-4df6-a7b7-bee6fff821a1"/>
-      </div>
-      <div className={styles.sectionOneContainer}>
-        <TableQrCode qrUrl="https://firebasestorage.googleapis.com/v0/b/kitchensync-fd489.appspot.com/o/tableOneQr.png?alt=media&token=8692d98f-2aea-4ae5-b1db-f21f818c6763"  style={styles.qrImageContainer1} tableNumber={1}/>
-        <Description/>
-        <TableQrCode qrUrl="https://firebasestorage.googleapis.com/v0/b/kitchensync-fd489.appspot.com/o/tableTwoQr.png?alt=media&token=2949f0a0-ab72-4dd8-b056-4096704f8542"  style={styles.qrImageContainer2} tableNumber={2}/>
-      </div>
-      <KitchenTable now={rightNow}/>
+        
+        {activeTab == "Home" ? <HeroSection /> : null}
+        {activeTab == "Tables" ? <TablesSection /> : null}
+        {activeTab == "Kitchen" ? <KitchenSection time={rightNow}/> : null}
+        <DemoToolbar activeTab={activeTab} tabClick={(tab) => setActiveTab(tab)}/>
       </div>
       
     </>

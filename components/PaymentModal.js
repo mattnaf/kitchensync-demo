@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from '@/styles/Home.module.css'
 import PaymentTable from "./PaymentTable";
+import dollarStringToInt from "@/functions/dollarStringToInt";
 
 const PaymentModal = (props) => {
 
@@ -20,7 +21,7 @@ const PaymentModal = (props) => {
     }
 
     const total = () => {
-        let total = Number(subtotal() * 1.08) + Number(tip ? tip : 0)
+        let total = Number(subtotal() * 1.08) + Number(tip ? dollarStringToInt(tip) : 0)
         return total.toFixed(2)
     }
 
@@ -36,7 +37,7 @@ const PaymentModal = (props) => {
                 </div>
                 <div className={styles.paymentTotalContainer}>
                     <p className={styles.paymentTotalLabel}>Tip:</p>
-                    <input value={tip} className={styles.paymentTotal} type="number" onChange={(event) => props.updateTip(event.target.value) }/>
+                    <input value={tip} className={styles.paymentTotal} onChange={(event) => props.updateTip(event) }/>
                     <p className={styles.paymentTotalLabel}>Tax:</p>
                     <p className={styles.paymentTotal}>${tax()}</p>
                 </div>

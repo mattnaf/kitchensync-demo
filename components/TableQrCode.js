@@ -4,8 +4,8 @@ import styles from '@/styles/Home.module.css'
 const TableQrCode = (props) => {
 
     return (
-        <div className={props.style}>
-            <p className={styles.qrName}>Table {props.tableNumber}</p>
+        <div className={styles.qrContainer}>
+            <p className={styles.qrName}>{props.qrName}</p>
             <img className={styles.qrImage} src={props.qrUrl}/>
         </div>
     )
