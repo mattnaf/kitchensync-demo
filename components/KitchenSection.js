@@ -50,7 +50,7 @@ const KitchenSection = (props) => {
                     )
                 })
                 return (
-                    <div className={styles.orderCell} key={index}onClick={() => completedOrder(order.id)}>
+                    <div className={styles.orderCell} key={index} onDoubleClick={() => completedOrder(order.id)}>
                         <div className={styles.orderHeadingContainer}>
                             <a className={styles.orderHeading}>Table {order.table}</a>
                         </div>
