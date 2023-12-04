@@ -120,7 +120,7 @@ const Menu = (props) => {
       table:tableNumber,
       items: cart,
       time: Date.now(),
-      id:cartId
+      id:cartId,
     })
     
     

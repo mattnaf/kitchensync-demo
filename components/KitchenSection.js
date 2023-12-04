@@ -3,6 +3,7 @@ import styles from '@/styles/Home.module.css'
 import {useCollection} from 'react-firebase-hooks/firestore';
 import { collection, deleteDoc, doc } from 'firebase/firestore';
 import db from '../firebase';
+import sortByTimestampDescending from "@/functions/sortArrayByTime";
 
 const KitchenSection = (props) => {
     const { time } = props
@@ -20,14 +21,23 @@ const KitchenSection = (props) => {
         return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
     }
 
+    const completedOrder = async (id) => {
+        await deleteDoc(doc(db, "orders", id))
+    }
+
     const populateOrders = () => {
         let columns = []
         let column = []
         let orderCells = []
+        
         if (value != null) {
-            orderCells = value.docs.map( (order, index) => {
-                let orderObj = order.data()
-                let orderItems = orderObj.items.map( (item, index) => {
+            let orders = value.docs.map( (orderObjs) => {
+                return orderObjs.data()
+            })
+
+            orders = orders.length > 0 ? sortByTimestampDescending(orders) : []
+            orderCells = orders.map( (order, index) => {
+                let orderItems = order.items.map( (item, index) => {
 
                     return (
                         <div className={styles.orderItemCell} key={index}>
@@ -40,15 +50,15 @@ const KitchenSection = (props) => {
                     )
                 })
                 return (
-                    <div className={styles.orderCell} key={index}>
+                    <div className={styles.orderCell} key={index}onClick={() => completedOrder(order.id)}>
                         <div className={styles.orderHeadingContainer}>
-                            <a className={styles.orderHeading}>{orderObj.table}</a>
+                            <a className={styles.orderHeading}>Table {order.table}</a>
                         </div>
                         <div className={styles.orderItemsContainer}>
                             {orderItems}
                         </div>
                         <div className={styles.orderTimeElapsedContainer}>
-                            <a className={styles.orderTimeElapsed}>{formattedElapsedTime(time - orderObj.time)}</a>
+                            <a className={styles.orderTimeElapsed}>{formattedElapsedTime(time - order.time)}</a>
                         </div>
                     </div>
                 )
