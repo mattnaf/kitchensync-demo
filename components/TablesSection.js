@@ -11,7 +11,7 @@ const TablesSection = (props) => {
             </div>
             <div className={styles.tablesColumn}>
                 <TableQrCode qrName="Table 3" qrUrl="/tableThree.png" />
-                <TableQrCode qrName="Take-Out" qrUrl="/takeOut.png" />
+                <TableQrCode qrName="Table 4" qrUrl="/tableFour.png" />
             </div>
         </div>
     )
